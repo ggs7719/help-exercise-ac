@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
       @messages = @messages.where( :status => "completed" )
     end
 
+
     if params[:days]
       # TODO: @messages = @messages.within_days(params[:days].to_i)
       @messages = @messages.where( ["created_at >= ?", Time.now - params[:days].to_i.days ] )
